@@ -1,0 +1,35 @@
+pentaho:
+  build: ./pentaho
+  links:
+   - db
+  command: /bin/bash
+  tty: true
+
+dbdata:
+  image: mongo:latest
+  volumes:
+    - /var/lib/mongodb
+  command: "true"
+
+db:
+  build: ./mongo
+  volumes_from:
+    - dbdata
+  ports:
+   - "27017:27017"
+
+elasticdata:
+  image: elk:latest
+  volumes:
+    - /opt/elasticsearch/data/
+  command: "true"
+
+elasticsearch:
+  build: ./elk
+  volumes_from:
+    - elasticdata
+  ports:
+   - "5044:5044"
+   - "9200:9200"
+   - "9300:9300"
+   - "5601:5601"
