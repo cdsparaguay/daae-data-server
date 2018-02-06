@@ -536,7 +536,7 @@
     </file>
     <fields>
       <field>
-        <name>datatype</name>
+        <name>dimension</name>
         <path>$.results[*].datatype</path>
         <type>String</type>
         <format />
@@ -611,7 +611,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <mongo_host>localhost</mongo_host>
+    <mongo_host>db</mongo_host>
     <mongo_port>27017</mongo_port>
     <use_all_replica_members>N</use_all_replica_members>
     <auth_mech />
@@ -635,7 +635,7 @@
     <mongo_fields>
       <mongo_field>
         <incoming_field_name>date</incoming_field_name>
-        <mongo_doc_path>date</mongo_doc_path>
+        <mongo_doc_path />
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
@@ -645,7 +645,7 @@
       </mongo_field>
       <mongo_field>
         <incoming_field_name>value</incoming_field_name>
-        <mongo_doc_path>value</mongo_doc_path>
+        <mongo_doc_path />
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
@@ -655,7 +655,7 @@
       </mongo_field>
       <mongo_field>
         <incoming_field_name>datatype</incoming_field_name>
-        <mongo_doc_path>datatype</mongo_doc_path>
+        <mongo_doc_path />
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
