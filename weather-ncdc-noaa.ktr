@@ -487,6 +487,18 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
+      <field>
+        <name>timeframe</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>daily</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <limit>1</limit>
     <never_ending>N</never_ending>
@@ -655,6 +667,16 @@
       </mongo_field>
       <mongo_field>
         <incoming_field_name>subclassifier</incoming_field_name>
+        <mongo_doc_path />
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>timeframe</incoming_field_name>
         <mongo_doc_path />
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
