@@ -463,13 +463,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Row Normaliser</from>
-      <to>Select values</to>
+      <from>Select values</from>
+      <to>MongoDB Output</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>MongoDB Output</to>
+      <from>Row Normaliser</from>
+      <to>Get System Info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get System Info</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -509,6 +514,54 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
+      <field>
+        <name>distrito</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>ASUNCION</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>departamento</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>ASUNCION</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>distrito_codigo</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dpto_codigo</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <limit>1</limit>
     <never_ending>N</never_ending>
@@ -523,7 +576,37 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>96</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>currentdate</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -630,7 +713,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>352</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -708,6 +791,56 @@
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
+      <mongo_field>
+        <incoming_field_name>distrito</incoming_field_name>
+        <mongo_doc_path />
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>departamento</incoming_field_name>
+        <mongo_doc_path />
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>distrito_codigo</incoming_field_name>
+        <mongo_doc_path />
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>dpto_codigo</incoming_field_name>
+        <mongo_doc_path />
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>currentdate</incoming_field_name>
+        <mongo_doc_path />
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
     </mongo_fields>
     <cluster_schema />
     <remotesteps>
@@ -717,7 +850,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>832</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -768,7 +901,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
+      <xloc>224</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -810,7 +943,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>464</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -840,6 +973,21 @@
       <field>
         <name>timeframe</name>
       </field>
+      <field>
+        <name>distrito</name>
+      </field>
+      <field>
+        <name>departamento</name>
+      </field>
+      <field>
+        <name>distrito_codigo</name>
+      </field>
+      <field>
+        <name>dpto_codigo</name>
+      </field>
+      <field>
+        <name>currentdate</name>
+      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <cluster_schema />
@@ -850,7 +998,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
+      <xloc>704</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
